@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +13,24 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public Wave[] Waves;
 
+    public Transform RestartCameraPosition;
+    public ObjectsToActive[] SetActiveObjectsAfterRestart;
+
     public enum finishMode { Play, Defeat, Win};
     public static finishMode FinishMode = finishMode.Play;
-    public static bool GamePaused = false, NearDefeat = false;
+    public static bool GamePaused = false, NearDefeat = false, FirstStart = true;
 
     private void Start()
     {
         finishAnimator = FinishAnimator;
+
+        // restarted game
+        if (!FirstStart)
+        {
+            foreach (var item in SetActiveObjectsAfterRestart) item.Object.SetActive(item.SetActive);
+            StartWaves();
+            SetPaused(false);
+        }
     }
 
     private void Update()
@@ -44,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void StartWaves()
     {
         StartCoroutine(StartWaveIEnumerator());
+        FirstStart = false;
     }
 
     IEnumerator StartWaveIEnumerator()
@@ -98,6 +110,11 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
 
 [Serializable]
@@ -114,4 +131,11 @@ public class EnemyWavePrefab
     public string EnemyName = "Enemy #";
     public GameObject EnemyPrefab;
     public int Count;
+}
+
+[Serializable]
+public class ObjectsToActive
+{
+    public GameObject Object;
+    public bool SetActive = true;
 }

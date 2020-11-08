@@ -11,6 +11,7 @@ public class PlayerParams : MonoBehaviour
     {
         if (!Weapon2.gameObject.activeSelf)
         {
+            Weapon1.StopAllCoroutines();
             Weapon1.gameObject.SetActive(false);
             Weapon2.gameObject.SetActive(true);
 
@@ -18,6 +19,7 @@ public class PlayerParams : MonoBehaviour
         }
         else
         {
+            Weapon2.StopAllCoroutines();
             Weapon1.gameObject.SetActive(true);
             Weapon2.gameObject.SetActive(false);
 

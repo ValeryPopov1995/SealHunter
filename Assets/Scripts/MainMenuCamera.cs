@@ -12,9 +12,12 @@ public class MainMenuCamera : MonoBehaviour
 
     private void Start()
     {
-        transform.position = StartPosition.position;
-        transform.rotation = StartPosition.rotation;
-        position = transform;
+        if (GameManager.FirstStart)
+        {
+            transform.position = StartPosition.position;
+            transform.rotation = StartPosition.rotation;
+            position = transform;
+        }
     }
 
     public void NewPosition(Transform Position)

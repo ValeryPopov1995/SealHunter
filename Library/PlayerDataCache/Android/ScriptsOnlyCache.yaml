@@ -1,8 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - CameraShaker
-    - DefeatTrigger
+    - BuyButton
     - EnemyMovenment
     - EnemyParams
     - FixedJoystick
@@ -10,6 +9,7 @@ ScriptsOnlyBuild:
     - MainMenuCamera
     - PlayerMovenment
     - PlayerParams
+    - TriggerZone
     - Weapon
     Unity.DeviceSimulator.Editor.dll:
     - Unity.DeviceSimulator.SimulatorWindow
@@ -34,8 +34,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -75,7 +77,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 72
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -88,51 +96,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11330}
+      Script: {instanceID: 11262}
     - Class: 114
-      Script: {instanceID: 11402}
+      Script: {instanceID: 11332}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 11404}
     - Class: 114
-      Script: {instanceID: 11462}
+      Script: {instanceID: 11444}
     - Class: 114
-      Script: {instanceID: 11568}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11570}
     - Class: 114
-      Script: {instanceID: 11864}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11866}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 11894}
     - Class: 114
-      Script: {instanceID: 12302}
+      Script: {instanceID: 12204}
     - Class: 114
-      Script: {instanceID: 12350}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12896}
+      Script: {instanceID: 12432}
     - Class: 114
-      Script: {instanceID: 13066}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 12900}
     - Class: 114
-      Script: {instanceID: 13172}
+      Script: {instanceID: 13070}
     - Class: 114
-      Script: {instanceID: 13216}
+      Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 13304}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 13316}
+      Script: {instanceID: 13222}
     - Class: 114
-      Script: {instanceID: 13380}
+      Script: {instanceID: 13310}
     - Class: 114
-      Script: {instanceID: 15734}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 15742}
+      Script: {instanceID: 13386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -194,6 +202,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 69762df5a69698f12a94c56b91643594
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TriggerZone
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -538,10 +552,16 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 1eec27a6f23dc8a7b931be54c2dc75d8
+      Hash: a076704fca50683546393aa7c160fa87
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
+  - hash:
+      serializedVersion: 2
+      Hash: ae82b288748247291e99ee5a2942f88b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BuyButton
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -658,7 +678,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 385d7ff67a12f83856e4538552f7598c
+      Hash: fcbe0cf1d010e95d225c78b743adee02
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerParams
@@ -670,10 +690,10 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: d3ff9b389581ec6e7b700f60ae8766b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CameraShaker
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: d5630f96bd5a6a6eed7e1754c3fb8703
@@ -766,7 +786,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 7d3bfa72ab7073e03c27fa9ec61a96b8
+      Hash: d5479a77ce953e1f473f838ecaad4ee1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyParams
@@ -806,19 +826,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: d271ebbf7ecd8268b0468a1bcf5f380a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DefeatTrigger
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/SealHunter build/Seal Hunter.apk
+  playerPath: C:/Users/valer/Dropbox/BROTHER/Seal Hunter.apk
