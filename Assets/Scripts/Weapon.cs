@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float Damage = 10, Rate = 100;
+    public float Damage = 10, Rate = 100, ReloadTime = 1f;
     public int BulletsMax = 10, BulletsCurrent = 10;
     public ParticleSystem ShootParticles;
 
@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator Shoot()
     {
-        if (readyToShoot)
+        if (readyToShoot && BulletsCurrent > 0)
         {
             readyToShoot = false;
 
@@ -29,10 +29,18 @@ public class Weapon : MonoBehaviour
                 if (enemy != null) enemy.TakeDamage(Damage);
             }
             BulletsCurrent--;
+            if (BulletsCurrent == 0) StartCoroutine(reload());
 
             yield return new WaitForSeconds(60/Rate);
             readyToShoot = true;
         }
         
+    }
+    IEnumerator reload()
+    {
+        readyToShoot = false;
+        yield return new WaitForSeconds(ReloadTime);
+        BulletsCurrent = BulletsMax;
+        readyToShoot = true;
     }
 }

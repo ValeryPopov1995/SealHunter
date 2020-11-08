@@ -13,7 +13,7 @@ public class CameraShaker : MonoBehaviour
         for (int i = strength; i > 0; i--)
         {
             gameObject.transform.localPosition = Vector3.one * Random.Range(0, i) / 10;
-            yield return new WaitForSeconds(Random.Range(.1f, .4f));
+            yield return new WaitForSeconds(Random.Range(.1f, .3f));
         }
         gameObject.transform.localPosition = Vector3.zero;
     }

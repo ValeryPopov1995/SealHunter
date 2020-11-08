@@ -7,6 +7,10 @@ public class EnemyParams : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Health -= damage;
-        if (Health < 0) GetComponent<EnemyMovenment>().isActive = false;
+        if (Health < 0)
+        {
+            GetComponent<EnemyMovenment>().isActive = false;
+            FindObjectOfType<GameManager>().ChangeEnemiesLeft(); // enemies left --
+        }
     }
 }
