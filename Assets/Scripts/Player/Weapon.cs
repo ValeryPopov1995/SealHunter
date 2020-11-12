@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public int BulletsMax = 10, BulletsCurrent = 10;
     public ParticleSystem ShootParticles;
 
-    bool readyToShoot = true;
+    bool readyToShoot = true, reloading = false;
     [HideInInspector]
     public string AmmoString;
 
@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator Shoot()
     {
-        if (readyToShoot && BulletsCurrent > 0)
+        if (readyToShoot && BulletsCurrent > 0 && !reloading)
         {
             readyToShoot = false;
 
@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
             }
             BulletsCurrent--;
             AmmoString = BulletsCurrent.ToString();
-            if (BulletsCurrent <= 0) StartCoroutine(reload());
+            if (BulletsCurrent < 1) StartCoroutine(reload());
 
             yield return new WaitForSeconds(60/Rate);
             readyToShoot = true;
@@ -47,16 +47,11 @@ public class Weapon : MonoBehaviour
     IEnumerator reload()
     {
         AmmoString = "Reloading";
-        readyToShoot = false;
+        reloading = true;
         yield return new WaitForSeconds(ReloadTime);
         BulletsCurrent = BulletsMax;
         AmmoString = BulletsCurrent.ToString();
         FindObjectOfType<PlayerParams>().AmmoText.text = AmmoString; // костыль !
-        readyToShoot = true;
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(reload());
+        reloading = false;
     }
 }

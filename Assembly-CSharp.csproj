@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerParams.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon.cs" />
     <Compile Include="Assets\Scripts\TriggerZone.cs" />
+    <Compile Include="Assets\ShootButton.cs" />
     <None Include="Assets\Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProjects/SealHunter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

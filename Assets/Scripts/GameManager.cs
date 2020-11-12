@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public enum finishMode { Play, Defeat, Win};
     public static finishMode FinishMode = finishMode.Play;
-    public static bool GamePaused = false, NearDefeat = false, FirstStart = true;
+    public static bool GamePaused = false, NearDefeat = false, Defeat = false, FirstStart = true;
 
     private void Start()
     {
@@ -37,18 +37,26 @@ public class GameManager : MonoBehaviour
     {
         if (GamePaused)
         {
-            if (Time.timeScale > .1f) Time.timeScale -= Time.unscaledDeltaTime;
+            if (Time.timeScale > .2f) Time.timeScale -= Time.unscaledDeltaTime;
         }
         else
         {
-            if (NearDefeat)
-            {
-                if (Time.timeScale > .5f) Time.timeScale -= Time.unscaledDeltaTime;
-            }
-            else
+            if (Defeat)
             {
                 if (Time.timeScale < 1) Time.timeScale += Time.unscaledDeltaTime;
             }
+            else
+            {
+                if (NearDefeat)
+                {
+                    if (Time.timeScale > .5f) Time.timeScale -= Time.unscaledDeltaTime;
+                }
+                else
+                {
+                    if (Time.timeScale < 1) Time.timeScale += Time.unscaledDeltaTime;
+                }
+            }
+            
         }
     }
 
@@ -114,6 +122,11 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void EventTest()
+    {
+        Debug.Log("Event test void called");
     }
 }
 

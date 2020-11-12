@@ -6,12 +6,18 @@ public class PlayerParams : MonoBehaviour
     public Weapon Weapon1, Weapon2;
     public Text AmmoText;
     public int Money = 0;
-    
+
+    bool shootHold = false;
+
+    private void Update()
+    {
+        if (shootHold) Shoot();
+    }
+
     public void SwitchWeapon()
     {
         if (!Weapon2.gameObject.activeSelf)
         {
-            Weapon1.StopAllCoroutines();
             Weapon1.gameObject.SetActive(false);
             Weapon2.gameObject.SetActive(true);
 
@@ -19,7 +25,6 @@ public class PlayerParams : MonoBehaviour
         }
         else
         {
-            Weapon2.StopAllCoroutines();
             Weapon1.gameObject.SetActive(true);
             Weapon2.gameObject.SetActive(false);
 
@@ -39,5 +44,10 @@ public class PlayerParams : MonoBehaviour
             StartCoroutine(Weapon2.Shoot());
             AmmoText.text = Weapon2.AmmoString;
         }
+    }
+
+    public void SetHoldShootButton(bool isHold)
+    {
+        shootHold = isHold;
     }
 }

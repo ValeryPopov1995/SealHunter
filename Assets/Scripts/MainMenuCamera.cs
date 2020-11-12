@@ -18,6 +18,7 @@ public class MainMenuCamera : MonoBehaviour
             transform.rotation = StartPosition.rotation;
             position = transform;
         }
+        else position = transform;
     }
 
     public void NewPosition(Transform Position)
