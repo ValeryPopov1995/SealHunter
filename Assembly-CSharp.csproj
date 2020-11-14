@@ -78,6 +78,7 @@
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\Scripts\BuyButton.cs" />
     <Compile Include="Assets\Scripts\EnemyMovenment.cs" />
     <Compile Include="Assets\Scripts\EnemyParams.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Assets\Scripts\Player\PlayerParams.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon.cs" />
     <Compile Include="Assets\Scripts\TriggerZone.cs" />
-    <Compile Include="Assets\ShootButton.cs" />
     <None Include="Assets\Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProjects/SealHunter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
