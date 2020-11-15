@@ -52,6 +52,20 @@ public class PlayerParams : MonoBehaviour
         }
     }
 
+    public void ReloadCurrentWeapon()
+    {
+        if (Weapon1.gameObject.activeSelf)
+        {
+            StartCoroutine(Weapon1.Reload());
+            AmmoText.text = Weapon1.AmmoString;
+        }
+        else
+        {
+            StartCoroutine(Weapon2.Reload());
+            AmmoText.text = Weapon2.AmmoString;
+        }
+    }
+
     public void SetHoldShootButton(bool isHold)
     {
         shootHold = isHold;
