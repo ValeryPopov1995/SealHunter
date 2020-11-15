@@ -16,20 +16,24 @@ public class PlayerParams : MonoBehaviour
 
     public void SwitchWeapon()
     {
-        if (!Weapon2.gameObject.activeSelf)
+        if (Weapon2 != null)
         {
-            Weapon1.gameObject.SetActive(false);
-            Weapon2.gameObject.SetActive(true);
+            if (!Weapon2.gameObject.activeSelf)
+            {
+                Weapon1.gameObject.SetActive(false);
+                Weapon2.gameObject.SetActive(true);
 
-            AmmoText.text = Weapon2.BulletsCurrent.ToString();
-        }
-        else
-        {
-            Weapon1.gameObject.SetActive(true);
-            Weapon2.gameObject.SetActive(false);
+                AmmoText.text = Weapon2.BulletsCurrent.ToString();
+            }
+            else
+            {
+                Weapon1.gameObject.SetActive(true);
+                Weapon2.gameObject.SetActive(false);
 
-            AmmoText.text = Weapon1.BulletsCurrent.ToString();
+                AmmoText.text = Weapon1.BulletsCurrent.ToString();
+            }
         }
+        
     }
 
     public void Shoot()
@@ -38,11 +42,13 @@ public class PlayerParams : MonoBehaviour
         {
             StartCoroutine(Weapon1.Shoot());
             AmmoText.text = Weapon1.AmmoString;
+            //if (Weapon1.FireEffectPrefab != null) Weapon1.FireEffectPrefab.SetActive(false);
         }
         else
         {
             StartCoroutine(Weapon2.Shoot());
             AmmoText.text = Weapon2.AmmoString;
+            //if (Weapon2.FireEffectPrefab != null) Weapon2.FireEffectPrefab.SetActive(false);
         }
     }
 

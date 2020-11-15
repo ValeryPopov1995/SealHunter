@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static int EnemiesLeft = 0, Wave = 0;
-    public Transform EnemySpowner;
+    public Transform[] EnemySpowners;
     public Animator FinishAnimator;
     static Animator finishAnimator;
 
     [SerializeField]
     public Wave[] Waves;
 
+    [Space]
     public Transform RestartCameraPosition;
     public ObjectsToActive[] SetActiveObjectsAfterRestart;
 
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        #region time scaling
         if (GamePaused)
         {
             if (Time.timeScale > .2f) Time.timeScale -= Time.unscaledDeltaTime;
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
             }
             
         }
+        #endregion
     }
 
     public void StartWaves()
@@ -69,11 +72,14 @@ public class GameManager : MonoBehaviour
     IEnumerator StartWaveIEnumerator()
     {
         yield return new WaitForSeconds(5f); // between waves
+        Debug.Log("next wave begun");
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
             {
-                Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, EnemySpowner.position, Quaternion.identity);
+                Vector3 pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)].position;
+                Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos, Quaternion.identity);
+                EnemiesLeft++;
                 yield return new WaitForSeconds(.9f); // between spowning
             }
         }
@@ -82,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void ChangeEnemiesLeft()
     {
         EnemiesLeft--;
+        Debug.Log(EnemiesLeft + "enemies left");
         if (EnemiesLeft == 0)
         {
             Wave++;
@@ -93,10 +100,12 @@ public class GameManager : MonoBehaviour
     public void SetPaused(bool state)
     {
         GamePaused = state;
+        Debug.Log("paused");
     }
 
     public void Quit()
     {
+        Debug.Log("quit");
         Application.Quit();
     }
 

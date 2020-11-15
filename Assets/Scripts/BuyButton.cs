@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class BuyButton : MonoBehaviour
 {
     public Weapon WeaponPrefab;
     public int Price = 10;
+
+    Button btn;
+
+    private void Start()
+    {
+        btn = GetComponent<Button>();
+        btn.onClick.AddListener(BuyWeapon);
+    }
 
     public void BuyWeapon()
     {
@@ -12,6 +21,9 @@ public class BuyButton : MonoBehaviour
         if (player.Money >= Price)
         {
             Debug.Log("weapon was bot");
+
+            
+
             player.Money -= Price;
             player.Weapon2 = WeaponPrefab;
 
@@ -19,7 +31,7 @@ public class BuyButton : MonoBehaviour
             player.Weapon2.gameObject.SetActive(true);
 
             player.AmmoText.text = player.Weapon2.AmmoString;
-            GetComponent<Button>().interactable = false;
+            btn.interactable = false;
         }
     }
 }
