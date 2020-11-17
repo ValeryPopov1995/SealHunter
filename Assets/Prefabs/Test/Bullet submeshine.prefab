@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4001302063482919427}
   - component: {fileID: -2920020239802590331}
   m_Layer: 0
-  m_Name: Bullet Pistol-gun
+  m_Name: Bullet submeshine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4001302063482919427
 MonoBehaviour:
@@ -59,8 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a273c1ff71dea4e92e3706781b143f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 10
   Speed: 70
+  TimerToDestroy: 5
   ImpactEffect: {fileID: 2026102058136658891, guid: 48039cc76ce044542823567834c6203b,
     type: 3}
 --- !u!54 &-2920020239802590331

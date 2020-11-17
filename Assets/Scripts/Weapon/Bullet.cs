@@ -3,10 +3,10 @@
 [RequireComponent(typeof(SphereCollider))]
 public class Bullet : MonoBehaviour
 {
-    public int Damage = 20, Speed = 50;
+    public int Damage = 20, Speed = 50, TimerToDestroy = 5;
     public GameObject ImpactEffect;
 
-    private void Start() { Destroy(gameObject, 5f); }
+    private void Start() { Destroy(gameObject, TimerToDestroy); }
 
     private void Update()
     {
