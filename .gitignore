@@ -338,3 +338,11 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# My preferences
+*.fbx
+Models/
+Images/
+Prefabs/
+Audio/
+Packages/
