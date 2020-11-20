@@ -341,8 +341,10 @@ healthchecksdb
 
 # My preferences
 *.fbx
-Models/
-Images/
-Prefabs/
 Audio/
-Packages/
+Assets/
+Images/
+Materials/
+Models/
+Prefabs/
+Scenes/
