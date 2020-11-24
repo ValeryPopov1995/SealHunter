@@ -6217,9 +6217,9 @@ MonoBehaviour:
     PlayerReplica: fucking shirt...
     Enemies:
     - EnemyName: Enemy #
-      EnemyPrefab: {fileID: 4488719190262958895, guid: 0b91be0da8ab05f4f8ca52d4d15f6411,
+      EnemyPrefab: {fileID: 4488719190262958895, guid: 72dda6347a5858e4191a79c3f196a096,
         type: 3}
-      Count: 5
+      Count: 2
   - WaveName: 2 providers
     PlayerReplica: providers!
     Enemies:
@@ -16942,7 +16942,7 @@ TextMesh:
   m_Anchor: 7
   m_Alignment: 1
   m_TabSize: 2
-  m_FontSize: 30
+  m_FontSize: 40
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 8711e42da2bf2fb4d91d2d374aaa9026, type: 3}
