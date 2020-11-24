@@ -41,6 +41,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -90,70 +91,72 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11196}
+      Script: {instanceID: 11198}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
     - Class: 114
-      Script: {instanceID: 11236}
+      Script: {instanceID: 11238}
     - Class: 114
-      Script: {instanceID: 11262}
+      Script: {instanceID: 11264}
     - Class: 114
-      Script: {instanceID: 11332}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11404}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11430}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11446}
+      Script: {instanceID: 11448}
     - Class: 114
-      Script: {instanceID: 11466}
+      Script: {instanceID: 11468}
     - Class: 114
-      Script: {instanceID: 11570}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11860}
+      Script: {instanceID: 11862}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 12292}
+      Script: {instanceID: 12294}
     - Class: 114
-      Script: {instanceID: 12340}
+      Script: {instanceID: 12342}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 12384}
     - Class: 114
-      Script: {instanceID: 12420}
+      Script: {instanceID: 12422}
     - Class: 114
-      Script: {instanceID: 12664}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12882}
+      Script: {instanceID: 12824}
     - Class: 114
-      Script: {instanceID: 13050}
+      Script: {instanceID: 12886}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 13054}
     - Class: 114
-      Script: {instanceID: 13078}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13202}
+      Script: {instanceID: 13162}
     - Class: 114
-      Script: {instanceID: 13246}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13250}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 13294}
     - Class: 114
-      Script: {instanceID: 13366}
+      Script: {instanceID: 13306}
     - Class: 114
-      Script: {instanceID: 35446}
+      Script: {instanceID: 13370}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -629,6 +632,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: c303de3799e28d4c0546673d407d0ff6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Engineer
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -659,7 +668,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 74d46d0a2b5fc8f6c8a7f4086bcd655a
+      Hash: f7118600e531ead775abd26bfb0dc287
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerParams
@@ -677,7 +686,7 @@ ScriptsOnlyBuild:
     className: WebLinkButton
   - hash:
       serializedVersion: 2
-      Hash: 2df2bb6ce95b7fe9eeace7b4e5b3fe7e
+      Hash: 5334a0cee7d01bc545b6f1647c5dd715
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -813,12 +822,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: c303de3799e28d4c0546673d407d0ff6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Engineer
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

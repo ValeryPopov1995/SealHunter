@@ -7,18 +7,16 @@ public class GameManager : MonoBehaviour
 {
     public static int EnemiesLeft = 0, Wave = 0;
     public Transform[] EnemySpowners;
-    public Animator FinishAnimator;
-    static Animator finishAnimator;
-
+    public Animator FinishAnimator, NextWave;
     [SerializeField]
     public Wave[] Waves;
-
     [Space]
-    public Transform RestartCameraPosition;
     public ObjectsToActive[] SetActiveObjectsAfterRestart;
 
     public enum finishMode { Play, Defeat, Win};
     public static finishMode FinishMode = finishMode.Play;
+    static Animator finishAnimator;
+    PlayerParams player;
     public static bool GamePaused = false, NearDefeat = false, Defeat = false, FirstStart = true;
 
     private void Start()
@@ -26,6 +24,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 30;
 
         finishAnimator = FinishAnimator;
+        player = FindObjectOfType<PlayerParams>();
         EnemiesLeft = 0; Wave = 0;
         // restarted game
         if (!FirstStart)
@@ -74,14 +73,16 @@ public class GameManager : MonoBehaviour
     IEnumerator StartWaveIEnumerator()
     {
         yield return new WaitForSeconds(5f); // between waves
-        Debug.Log("next wave begun");
+        Debug.Log(Wave + " wave begun");
+        NextWave.SetTrigger("play");
+        player.TellReplica(Waves[Wave].PlayerReplica);
+
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
             {
                 Vector3 pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)].position;
                 Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos, Quaternion.identity);
-                EnemiesLeft++;
                 yield return new WaitForSeconds(.9f); // between spowning
             }
         }
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
 [Serializable]
 public class Wave
 {
-    public string WaveName = "Wave #";
+    public string WaveName = "Wave #", PlayerReplica;
     [SerializeField]
     public EnemyWavePrefab[] Enemies;
 }

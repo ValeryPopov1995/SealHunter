@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class PlayerParams : MonoBehaviour
 {
     public Weapon Weapon1, Weapon2;
     public Text AmmoText, MoneyText;
+    public GameObject Replica;
     public int Money = 0;
 
     bool shootHold = false;
@@ -79,5 +81,14 @@ public class PlayerParams : MonoBehaviour
     {
         Money += money;
         MoneyText.text = "$ " + Money.ToString();
+    }
+
+    public void TellReplica(string str)
+    {
+        if (str != "")
+        {
+            Replica.GetComponent<Animator>().SetTrigger("play");
+            Replica.GetComponent<TextMesh>().text = str;
+        }
     }
 }

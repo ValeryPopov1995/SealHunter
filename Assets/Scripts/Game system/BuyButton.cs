@@ -24,7 +24,7 @@ public class BuyButton : MonoBehaviour
 
             if (player.Weapon2 != null) player.Weapon2.gameObject.SetActive(false);
 
-            player.AddMoney(Price);
+            player.AddMoney(-Price);
             player.Weapon2 = WeaponPrefab;
 
             player.Weapon1.gameObject.SetActive(false);
