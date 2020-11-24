@@ -72,10 +72,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartWaveIEnumerator()
     {
-        yield return new WaitForSeconds(5f); // between waves
-        Debug.Log(Wave + " wave begun");
         NextWave.SetTrigger("play");
         player.TellReplica(Waves[Wave].PlayerReplica);
+
+        yield return new WaitForSeconds(5f); // between waves
+        Debug.Log(Wave + " wave begun");
 
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
