@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - BuyButton
     - EnemyMovenment
     - EnemyParams
+    - Engineer
     - FixedJoystick
     - GameManager
     - MainMenuCamera
@@ -36,9 +37,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -150,6 +152,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13302}
     - Class: 114
       Script: {instanceID: 13366}
+    - Class: 114
+      Script: {instanceID: 35446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,8 +161,6 @@ ScriptsOnlyBuild:
     - Class: 135
       Script: {instanceID: 0}
     - Class: 136
-      Script: {instanceID: 0}
-    - Class: 137
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
@@ -171,6 +173,8 @@ ScriptsOnlyBuild:
     - Class: 199
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 215
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -277,7 +281,7 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
-      Hash: 8cad5a192e9abe85a25b57108de90835
+      Hash: 3806b5ddf9b4a40080767e23c914ef1c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
@@ -655,7 +659,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: fcbe0cf1d010e95d225c78b743adee02
+      Hash: 74d46d0a2b5fc8f6c8a7f4086bcd655a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerParams
@@ -769,7 +773,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: d5479a77ce953e1f473f838ecaad4ee1
+      Hash: ff99a33c6dbb854149cf508616003c8f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyParams
@@ -799,7 +803,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 6161351fd8a2d219348a49d798b4d899
+      Hash: b730ad3e977779bd4be628cb542f439c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyMovenment
@@ -809,7 +813,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c303de3799e28d4c0546673d407d0ff6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Engineer
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/valer/Dropbox/BROTHER/Seal Hunter.apk
+  playerPath: D:/UnityProjects/No Signal.apk

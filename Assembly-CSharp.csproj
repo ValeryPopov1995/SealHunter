@@ -70,17 +70,18 @@
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-    <Compile Include="Assets\Scripts\EnemyMovenment.cs" />
-    <Compile Include="Assets\Scripts\EnemyParams.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyMovenment.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyParams.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Engineer.cs" />
     <Compile Include="Assets\Scripts\Game system\BuyButton.cs" />
     <Compile Include="Assets\Scripts\Game system\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game system\MainMenuCamera.cs" />
     <Compile Include="Assets\Scripts\Game system\TriggerZone.cs" />
+    <Compile Include="Assets\Scripts\Game system\WebLinkButton.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovenment.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerParams.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
-    <Compile Include="Assets\WebLinkButton.cs" />
     <None Include="Assets\Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProjects/SealHunter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

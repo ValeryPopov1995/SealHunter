@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(SphereCollider), typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
     public int Damage = 20, Speed = 50, TimerToDestroy = 5;

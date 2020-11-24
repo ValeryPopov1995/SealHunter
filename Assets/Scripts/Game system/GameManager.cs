@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 30;
+
         finishAnimator = FinishAnimator;
         EnemiesLeft = 0; Wave = 0;
         // restarted game
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
         #region time scaling
         if (GamePaused)
         {
-            if (Time.timeScale > .2f) Time.timeScale -= Time.unscaledDeltaTime;
+            if (Time.timeScale > .3f) Time.timeScale -= Time.unscaledDeltaTime;
         }
         else
         {
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
             {
                 if (NearDefeat)
                 {
-                    if (Time.timeScale > .5f) Time.timeScale -= Time.unscaledDeltaTime;
+                    if (Time.timeScale > .6f) Time.timeScale -= Time.unscaledDeltaTime;
                 }
                 else if (Time.timeScale < 1) Time.timeScale += Time.unscaledDeltaTime;
             }

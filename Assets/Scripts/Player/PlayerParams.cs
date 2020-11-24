@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlayerParams : MonoBehaviour
 {
     public Weapon Weapon1, Weapon2;
-    public Text AmmoText;
+    public Text AmmoText, MoneyText;
     public int Money = 0;
 
     bool shootHold = false;
@@ -73,5 +73,11 @@ public class PlayerParams : MonoBehaviour
     public void SetHoldShootButton(bool isHold)
     {
         shootHold = isHold;
+    }
+
+    public void AddMoney(int money)
+    {
+        Money += money;
+        MoneyText.text = "$ " + Money.ToString();
     }
 }
