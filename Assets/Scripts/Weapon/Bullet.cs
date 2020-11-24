@@ -4,7 +4,6 @@
 public class Bullet : MonoBehaviour
 {
     public int Damage = 20, Speed = 50, TimerToDestroy = 5;
-    public GameObject ImpactEffect;
 
     private void Start() { Destroy(gameObject, TimerToDestroy); }
 
@@ -18,7 +17,6 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(Damage);
-            if (ImpactEffect != null) Instantiate(ImpactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

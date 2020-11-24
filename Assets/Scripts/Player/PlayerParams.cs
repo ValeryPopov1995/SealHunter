@@ -20,6 +20,8 @@ public class PlayerParams : MonoBehaviour
         {
             if (!Weapon2.gameObject.activeSelf)
             {
+                Weapon1.StopReload();
+
                 Weapon1.gameObject.SetActive(false);
                 Weapon2.gameObject.SetActive(true);
 
@@ -27,6 +29,8 @@ public class PlayerParams : MonoBehaviour
             }
             else
             {
+                Weapon2.StopReload();
+
                 Weapon1.gameObject.SetActive(true);
                 Weapon2.gameObject.SetActive(false);
 
@@ -56,12 +60,12 @@ public class PlayerParams : MonoBehaviour
     {
         if (Weapon1.gameObject.activeSelf)
         {
-            StartCoroutine(Weapon1.Reload());
+            Weapon1.Reload();
             AmmoText.text = Weapon1.AmmoString;
         }
         else
         {
-            StartCoroutine(Weapon2.Reload());
+            Weapon2.Reload();
             AmmoText.text = Weapon2.AmmoString;
         }
     }

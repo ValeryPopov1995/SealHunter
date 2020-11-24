@@ -10,9 +10,12 @@ public class Weapon : MonoBehaviour
     bool readyToShoot = true, reloading = false;
     [HideInInspector]
     public string AmmoString;
+    Coroutine routine;
+    PlayerParams player;
 
     private void Awake()
     {
+        player = FindObjectOfType<PlayerParams>();
         AmmoString = BulletsCurrent.ToString();
         if (FireEffectPrefab != null) FireEffectPrefab.SetActive(false);
     }
@@ -58,10 +61,10 @@ public class Weapon : MonoBehaviour
             
             readyToShoot = true;
         }
-        
-        if (BulletsCurrent < 1) StartCoroutine(Reload());
+
+        if (BulletsCurrent < 1) Reload();
     }
-    public IEnumerator Reload()
+    IEnumerator reload()
     {
         if (BulletsCurrent != BulletsMax)
         {
@@ -70,8 +73,26 @@ public class Weapon : MonoBehaviour
             yield return new WaitForSeconds(ReloadTime);
             BulletsCurrent = BulletsMax;
             AmmoString = BulletsCurrent.ToString();
-            FindObjectOfType<PlayerParams>().AmmoText.text = AmmoString; // костыль !
+            player.AmmoText.text = AmmoString; // костыль !
             reloading = false;
+            routine = null;
+        }
+    }
+
+    public void Reload()
+    {
+        if (routine == null) routine = StartCoroutine(reload());
+    }
+
+    public void StopReload()
+    {
+        if (routine != null)
+        {
+            AmmoString = BulletsCurrent.ToString();
+            player.AmmoText.text = AmmoString; // костыль !
+            reloading = false;
+            StopCoroutine(routine);
+            routine = null;
         }
     }
 }
