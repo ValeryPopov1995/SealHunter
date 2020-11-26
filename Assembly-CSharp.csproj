@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyMovenment.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyParams.cs" />
     <Compile Include="Assets\Scripts\Enemies\Engineer.cs" />
+    <Compile Include="Assets\Scripts\Enemy cards\EnemyCard.cs" />
     <Compile Include="Assets\Scripts\Game system\BuyButton.cs" />
     <Compile Include="Assets\Scripts\Game system\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game system\MainMenuCamera.cs" />

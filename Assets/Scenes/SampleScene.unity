@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rate: 60
   ReloadTime: 1
-  AccuracyAngle: 5
+  AccuracyAngle: 4
   BulletsPerShoot: 9
   BulletsMax: 10
   BulletsCurrent: 10
@@ -5226,7 +5226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rate: 500
   ReloadTime: 2
-  AccuracyAngle: 3
+  AccuracyAngle: 2
   BulletsPerShoot: 1
   BulletsMax: 20
   BulletsCurrent: 20
@@ -6134,7 +6134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -400}
+  m_AnchoredPosition: {x: 0, y: -600}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!95 &1028280762
@@ -11996,7 +11996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rate: 200
   ReloadTime: 1
-  AccuracyAngle: 1
+  AccuracyAngle: 0.4
   BulletsPerShoot: 1
   BulletsMax: 10
   BulletsCurrent: 10
@@ -15460,7 +15460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rate: 700
   ReloadTime: 5
-  AccuracyAngle: 3
+  AccuracyAngle: 1.5
   BulletsPerShoot: 1
   BulletsMax: 150
   BulletsCurrent: 150

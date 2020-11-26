@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
+            if (Waves[Wave].Enemies[i].Card != null)
+            {
+                // massage ! new enemy
+            }
+
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
             {
                 Vector3 pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)].position;
@@ -155,6 +160,7 @@ public class Wave
 public class EnemyWavePrefab
 {
     public string EnemyName = "Enemy #";
+    public EnemyCard Card;
     public GameObject EnemyPrefab;
     public int Count;
 }

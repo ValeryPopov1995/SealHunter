@@ -3,7 +3,8 @@
 [RequireComponent(typeof(SphereCollider), typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    public int Damage = 20, Speed = 50, TimerToDestroy = 5;
+    public int Damage = 20, Speed = 100;
+    public float TimerToDestroy = 3.5f;
 
     private void Start() { Destroy(gameObject, TimerToDestroy); }
 
@@ -11,6 +12,7 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(transform.forward * Speed * Time.deltaTime);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<EnemyParams>();
