@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static int EnemiesLeft = 0, Wave = 0;
     public Transform[] EnemySpowners;
     public Animator FinishAnimator, NextWave;
+    public GameObject NewEnemyMassage;
+    [Space]
     [SerializeField]
     public Wave[] Waves;
     [Space]
@@ -80,9 +83,14 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
-            if (Waves[Wave].Enemies[i].Card != null)
+            var card = Waves[Wave].Enemies[i].Card;
+            if (card != null)
             {
                 // massage ! new enemy
+                NewEnemyMassage.SetActive(true);
+                GamePaused = true;
+                NewEnemyMassage.GetComponentInChildren<Text>().text = card.Description;
+                NewEnemyMassage.GetComponentInChildren<Image>().sprite = card.Image;
             }
 
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
