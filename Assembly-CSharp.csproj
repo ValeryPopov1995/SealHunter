@@ -79,10 +79,12 @@
     <Compile Include="Assets\Scripts\Game system\MainMenuCamera.cs" />
     <Compile Include="Assets\Scripts\Game system\TriggerZone.cs" />
     <Compile Include="Assets\Scripts\Game system\WebLinkButton.cs" />
+    <Compile Include="Assets\Scripts\PitchAudio.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovenment.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerParams.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
+    <Compile Include="Assets\Scripts\SoundEvents.cs" />
+    <Compile Include="Assets\Scripts\Weaponry\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Weaponry\Weapon.cs" />
     <None Include="Assets\Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProjects/SealHunter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
