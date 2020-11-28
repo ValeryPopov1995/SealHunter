@@ -95,8 +95,8 @@ public class GameManager : MonoBehaviour
 
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
             {
-                Vector3 pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)].position;
-                Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos, Quaternion.identity);
+                var pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)];
+                Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos.position, pos.rotation);
                 yield return new WaitForSeconds(.9f); // between spowning
             }
         }
