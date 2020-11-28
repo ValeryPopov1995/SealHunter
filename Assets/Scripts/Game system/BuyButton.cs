@@ -8,9 +8,11 @@ public class BuyButton : MonoBehaviour
     public int Price = 10;
 
     Button btn;
+    SoundEvents sound;
 
     private void Start()
     {
+        sound = FindObjectOfType<SoundEvents>();
         btn = GetComponent<Button>();
         btn.onClick.AddListener(BuyWeapon);
     }
@@ -32,6 +34,8 @@ public class BuyButton : MonoBehaviour
 
             player.AmmoText.text = player.Weapon2.AmmoString;
             btn.interactable = false;
+
+            sound.Buy();
         }
     }
 }

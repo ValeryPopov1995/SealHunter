@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public static finishMode FinishMode = finishMode.Play;
     static Animator finishAnimator;
     PlayerParams player;
+    static SoundEvents soundEvents;
     public static bool GamePaused = false, NearDefeat = false, Defeat = false, FirstStart = true;
 
     private void Start()
@@ -28,8 +29,9 @@ public class GameManager : MonoBehaviour
 
         finishAnimator = FinishAnimator;
         player = FindObjectOfType<PlayerParams>();
+        soundEvents = FindObjectOfType<SoundEvents>();
         EnemiesLeft = 0; Wave = 0;
-        // restarted game
+
         if (!FirstStart)
         {
             FinishMode = finishMode.Play;
@@ -37,8 +39,6 @@ public class GameManager : MonoBehaviour
             StartWaves();
             SetPaused(false);
         }
-
-        Debug.Log("game state: " + FinishMode);
     }
 
     private void Update()
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         player.TellReplica(Waves[Wave].PlayerReplica);
 
         yield return new WaitForSeconds(5f); // between waves
+        soundEvents.NextWave();
         Debug.Log(Wave + " wave begun");
 
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         EnemiesLeft--;
         Debug.Log(EnemiesLeft + "enemies left");
+        if (EnemiesLeft == 1) soundEvents.SetVolume(0);
         if (EnemiesLeft == 0)
         {
             Wave++;
@@ -135,12 +137,14 @@ public class GameManager : MonoBehaviour
                 FinishMode = finishMode.Defeat;
                 Debug.LogWarning("Defeat!");
                 finishAnimator.SetTrigger("defeat");
+                soundEvents.DefeatWave();
             }
             else if (mode == finishMode.Win)
             {
                 FinishMode = finishMode.Win;
                 Debug.LogWarning("Win!");
                 finishAnimator.SetTrigger("win");
+                soundEvents.WinWave();
             }
         }
     }

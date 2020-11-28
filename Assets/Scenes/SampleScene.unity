@@ -2039,10 +2039,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171394e2fad377f49ac6b9e6465672bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinWaves: []
-  Defeat: []
-  BuyWeapon: []
-  Battle: []
+  WinWaves:
+  - {fileID: 8300000, guid: 998b17b0584cc554b8facbdcf2e68379, type: 3}
+  - {fileID: 8300000, guid: e5ead51f8a06ce140b7bef1a7776cf66, type: 3}
+  Defeat:
+  - {fileID: 8300000, guid: dfdf5f1644f57f54a855c79dd48da55e, type: 3}
+  BuyWeapon:
+  - {fileID: 8300000, guid: 59290b75c7abfe04698276488ba9ed52, type: 3}
+  - {fileID: 8300000, guid: 0214517933878de4ea57dbabf91f469f, type: 3}
+  - {fileID: 8300000, guid: 0cbe19b8ff3adcd4aa59ecb5d5842236, type: 3}
+  Battle:
+  - {fileID: 8300000, guid: eb60d916bc59f8149a17f7053d1e2838, type: 3}
+  - {fileID: 8300000, guid: 7181a764cbd40f444915ecc38f9c78e2, type: 3}
+  - {fileID: 8300000, guid: 22def73994483bf4e8244d8957e5758b, type: 3}
+  - {fileID: 8300000, guid: 3553a650cc9f92546bc0149afb78c4c9, type: 3}
+  - {fileID: 8300000, guid: 246157be04c275b45b9becc2cc7a9725, type: 3}
+  StartWave:
+  - {fileID: 8300000, guid: 86afd4340b1ff8846af44b56aeb6ea2b, type: 3}
+  HornNextWave: {fileID: 8300000, guid: 86afd4340b1ff8846af44b56aeb6ea2b, type: 3}
 --- !u!1001 &513647876
 PrefabInstance:
   m_ObjectHideFlags: 0
