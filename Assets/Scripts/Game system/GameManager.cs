@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         if (EnemiesLeft == 0)
         {
             Wave++;
+            soundEvents.WinWave();
             if (Wave < Waves.Length) StartCoroutine(StartWaveIEnumerator());
             else Finish(finishMode.Win);
         }
@@ -144,7 +145,6 @@ public class GameManager : MonoBehaviour
                 FinishMode = finishMode.Win;
                 Debug.LogWarning("Win!");
                 finishAnimator.SetTrigger("win");
-                soundEvents.WinWave();
             }
         }
     }

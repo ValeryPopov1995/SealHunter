@@ -39,8 +39,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -87,6 +89,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
     - Class: 91
@@ -109,6 +113,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11264}
     - Class: 114
       Script: {instanceID: 11336}
+    - Class: 114
+      Script: {instanceID: 11344}
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
@@ -190,6 +196,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -386,7 +398,7 @@ ScriptsOnlyBuild:
     className: Vignette
   - hash:
       serializedVersion: 2
-      Hash: 193583e203a6764c49826ee5757178a1
+      Hash: d9c9894c99eb3ef6784b7577c7775f3b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundEvents
@@ -452,7 +464,7 @@ ScriptsOnlyBuild:
     className: PostProcessEffectSettings
   - hash:
       serializedVersion: 2
-      Hash: 17d3dca15914cecdfeda57f7972d5677
+      Hash: c6d63f6e0c61628e13241c4110468f48
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PitchAudio

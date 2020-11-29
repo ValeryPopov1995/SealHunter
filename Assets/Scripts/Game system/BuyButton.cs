@@ -20,7 +20,7 @@ public class BuyButton : MonoBehaviour
     public void BuyWeapon()
     {
         PlayerParams player = FindObjectOfType<PlayerParams>();
-        if (player.Money >= Price)
+        if (player.Money >= Price && player.Weapon2 != WeaponPrefab)
         {
             Debug.Log("weapon was bot");
 
@@ -33,7 +33,7 @@ public class BuyButton : MonoBehaviour
             player.Weapon2.gameObject.SetActive(true);
 
             player.AmmoText.text = player.Weapon2.AmmoString;
-            btn.interactable = false;
+            // btn.interactable = false;
 
             sound.Buy();
         }
