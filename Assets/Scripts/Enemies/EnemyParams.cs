@@ -6,6 +6,7 @@ public class EnemyParams : MonoBehaviour
     public float Health = 100;
     public int KillCost = 10;
     public GameObject ImpactEffect;
+    public Animator MeshAnimator;
     public Spown[] Spowns;
 
     bool dead = false;
@@ -33,8 +34,7 @@ public class EnemyParams : MonoBehaviour
             if (Spowns.Length > 0) foreach (var item in Spowns)
                     Instantiate(item.EnemyPrefab, item.SpownPoint.position, item.SpownPoint.rotation);
 
-            Animator anim = GetComponent<Animator>();
-            if (anim != null) anim.SetTrigger("destroy");
+            if (MeshAnimator != null) MeshAnimator.SetTrigger("destroy");
 
             Destroy(gameObject, 1f);
         }
