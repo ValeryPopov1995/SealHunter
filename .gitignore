@@ -348,4 +348,8 @@ Materials/
 Models/
 Prefabs/
 Scenes/
+Library/
+Packages/
+Logs/
+ProjectSettings/
 *.fbx
