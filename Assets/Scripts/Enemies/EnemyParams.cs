@@ -11,11 +11,13 @@ public class EnemyParams : MonoBehaviour
 
     bool dead = false;
     EnemyMovenment movenment;
+    Collider collider;
 
     private void Start()
     {
         GameManager.EnemiesLeft++;
         movenment = GetComponent<EnemyMovenment>();
+        collider = GetComponent<Collider>();
     }
 
     public void TakeDamage(float damage)
@@ -36,7 +38,8 @@ public class EnemyParams : MonoBehaviour
 
             if (MeshAnimator != null) MeshAnimator.SetTrigger("destroy");
 
-            Destroy(gameObject, 1f);
+            collider.enabled = false;
+            Destroy(gameObject, 5f);
         }
     }
 
