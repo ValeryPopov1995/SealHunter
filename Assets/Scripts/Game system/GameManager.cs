@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static int EnemiesLeft = 0, Wave = 0;
     public Transform[] EnemySpowners;
     public Animator FinishAnimator, NextWave;
-    public GameObject NewEnemyMassage;
+    //public GameObject NewEnemyMassage;
     [Space]
     [SerializeField]
     public Wave[] Waves;
@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     public enum finishMode { Play, Defeat, Win};
     public static finishMode FinishMode = finishMode.Play;
-    static Animator finishAnimator;
     PlayerParams player;
     static SoundEvents soundEvents;
     public static bool GamePaused = false, NearDefeat = false, Defeat = false, FirstStart = true;
@@ -27,10 +26,10 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 30;
 
-        finishAnimator = FinishAnimator;
         player = FindObjectOfType<PlayerParams>();
         soundEvents = FindObjectOfType<SoundEvents>();
-        EnemiesLeft = 0; Wave = 0;
+        EnemiesLeft = 0;
+        Wave = 0;
 
         if (!FirstStart)
         {
@@ -84,16 +83,6 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
         {
-            var card = Waves[Wave].Enemies[i].Card;
-            if (card != null)
-            {
-                // massage ! new enemy
-                NewEnemyMassage.SetActive(true);
-                GamePaused = true;
-                NewEnemyMassage.GetComponentInChildren<Text>().text = card.Description;
-                NewEnemyMassage.GetComponentInChildren<Image>().sprite = card.Image;
-            }
-
             for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
             {
                 var pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)];
@@ -106,8 +95,8 @@ public class GameManager : MonoBehaviour
     public void ChangeEnemiesLeft()
     {
         EnemiesLeft--;
-        Debug.Log(EnemiesLeft + "enemies left");
-        if (EnemiesLeft == 1) soundEvents.SetVolume(0);
+        //Debug.Log(EnemiesLeft + "enemies left");
+        if (EnemiesLeft == 1) StartCoroutine(soundEvents.SetBattleLoopVolume(0f));
         if (EnemiesLeft == 0)
         {
             Wave++;
@@ -129,7 +118,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public static void Finish(finishMode mode)
+    public void Finish(finishMode mode)
     {
         if (FinishMode == finishMode.Play)
         {
@@ -137,14 +126,14 @@ public class GameManager : MonoBehaviour
             {
                 FinishMode = finishMode.Defeat;
                 Debug.LogWarning("Defeat!");
-                finishAnimator.SetTrigger("defeat");
+                FinishAnimator.SetTrigger("defeat");
                 soundEvents.DefeatWave();
             }
             else if (mode == finishMode.Win)
             {
                 FinishMode = finishMode.Win;
                 Debug.LogWarning("Win!");
-                finishAnimator.SetTrigger("win");
+                FinishAnimator.SetTrigger("win");
             }
         }
     }
@@ -172,7 +161,6 @@ public class Wave
 public class EnemyWavePrefab
 {
     public string EnemyName = "Enemy #";
-    public EnemyCard Card;
     public GameObject EnemyPrefab;
     public int Count;
 }

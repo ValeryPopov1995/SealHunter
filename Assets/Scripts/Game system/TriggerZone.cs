@@ -22,7 +22,7 @@ public class TriggerZone : MonoBehaviour
         
         if (TriggerMode == mode.DefeatZone && other.GetComponent<EnemyMovenment>() != null)
         {
-            GameManager.Finish(GameManager.finishMode.Defeat);
+            FindObjectOfType<GameManager>().Finish(GameManager.finishMode.Defeat);
             // Debug.Log("defeat");
         }
     }

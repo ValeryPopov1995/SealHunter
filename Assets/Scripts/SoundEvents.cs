@@ -23,22 +23,19 @@ public class SoundEvents : MonoBehaviour
         battleloop.loop = true;
         battleloop.volume = 0;
         battleloop.outputAudioMixerGroup = Sound;
+        battleloop.clip = Battle[Random.Range(0, Battle.Length)];
     }
 
     public void WinWave()
     {
         effsource.clip = WinWaves[Random.Range(0, WinWaves.Length)];
         effsource.Play();
-
-        StartCoroutine(SetVolume(0));
     }
 
     public void DefeatWave()
     {
         effsource.clip = Defeat[Random.Range(0, WinWaves.Length)];
         effsource.Play();
-
-        StartCoroutine(SetVolume(0));
     }
 
     public void Buy()
@@ -52,26 +49,31 @@ public class SoundEvents : MonoBehaviour
         effsource.clip = HornNextWave;
         effsource.Play();
 
-        AudioClip mus;
-        do { mus = Battle[Random.Range(0, WinWaves.Length)]; } while (mus != battleloop.clip);
+        StartCoroutine(PlayBattleMusic());
 
-        battleloop.clip = Battle[Random.Range(0, WinWaves.Length)];
-        battleloop.Play();
-
-        StartCoroutine(SetVolume(1));
+        StartCoroutine(SetBattleLoopVolume(1f));
     }
 
-    public IEnumerator SetVolume(float volume)
+    public IEnumerator SetBattleLoopVolume(float vol)
     {
         float startvol = battleloop.volume;
-        if (startvol != volume)
+        for (int i = 0; i < 10; i++)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (startvol > volume) battleloop.volume -= (startvol - volume) / 10;
-                else battleloop.volume += (volume - startvol) / 10;
-                yield return new WaitForSeconds(.2f);
-            }
+            battleloop.volume += (vol - startvol) / 10;
+            yield return new WaitForSeconds(.2f);
         }
+    }
+
+    IEnumerator PlayBattleMusic()
+    {
+        AudioClip mus = Battle[Random.Range(0, Battle.Length)];
+        if (Battle.Length > 1)
+            while (mus == battleloop.clip)
+            {
+                mus = Battle[Random.Range(0, Battle.Length)];
+                yield return new WaitForEndOfFrame();
+            }
+        battleloop.clip = mus;
+        battleloop.Play();
     }
 }

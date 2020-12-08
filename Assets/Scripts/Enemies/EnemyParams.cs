@@ -34,7 +34,7 @@ public class EnemyParams : MonoBehaviour
             if (Spowns.Length > 0) foreach (var item in Spowns)
                     Instantiate(item.EnemyPrefab, item.SpownPoint.position, item.SpownPoint.rotation);
 
-            if (MeshAnimator != null) MeshAnimator.SetTrigger("destroy");
+            //if (MeshAnimator != null) MeshAnimator.SetTrigger("destroy");
 
             Destroy(gameObject, 1f);
         }
