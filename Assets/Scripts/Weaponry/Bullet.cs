@@ -4,6 +4,8 @@
 public class Bullet : MonoBehaviour
 {
     public int Damage = 20, Speed = 100;
+    [Range(1, 10)]
+    public int CollisionCount = 1;
     public float TimerToDestroy = 3.5f;
 
     private void Start() { Destroy(gameObject, TimerToDestroy + Random.Range(0f, .5f)); }
@@ -20,7 +22,8 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(Damage);
             if (enemy.ImpactEffect != null) Instantiate(enemy.ImpactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            CollisionCount--;
+            if (CollisionCount <= 0) Destroy(gameObject);
         }
     }
 }

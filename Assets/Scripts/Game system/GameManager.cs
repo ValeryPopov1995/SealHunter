@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -87,7 +86,7 @@ public class GameManager : MonoBehaviour
             {
                 var pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)];
                 Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos.position, pos.rotation);
-                yield return new WaitForSeconds(.9f); // between spowning
+                yield return new WaitForSeconds(UnityEngine.Random.Range(.3f, 1.5f)); // between spowning
             }
         }
     }
