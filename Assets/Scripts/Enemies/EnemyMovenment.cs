@@ -6,7 +6,7 @@ public class EnemyMovenment : MonoBehaviour
     public float MoveSpeed = 5;
     public float MaxRightSpeed = 3;
 
-    float randomRightSpeed = 0;
+    float setRightSpeed = 0, currentRightSpeed;
     [HideInInspector]
     public bool isActive = true;
     CharacterController character;
@@ -23,8 +23,18 @@ public class EnemyMovenment : MonoBehaviour
     {
         if (isActive)
         {
-            Vector3 mov = Vector3.back * MoveSpeed + Vector3.right * randomRightSpeed - Vector3.up * 3;
+            // smooth move changes
+            if (currentRightSpeed != setRightSpeed)
+                currentRightSpeed += (setRightSpeed - currentRightSpeed) * Time.deltaTime;
+            // mesh rotation
+            transform.rotation = Quaternion.Euler( 
+                transform.rotation.x, 
+                (-currentRightSpeed / MoveSpeed * 45) + 180, 
+                transform.rotation.z);
+
+            Vector3 mov = Vector3.back * MoveSpeed + Vector3.right * currentRightSpeed - Vector3.up * 3;
             character.Move(mov * Time.deltaTime);
+
         }
     }
 
@@ -32,8 +42,7 @@ public class EnemyMovenment : MonoBehaviour
     {
         while (isActive)
         {
-            float right = MaxRightSpeed;
-            randomRightSpeed = Random.Range(-right, right);
+            setRightSpeed = Random.Range(-MaxRightSpeed, MaxRightSpeed);
             yield return new WaitForSeconds(Random.Range(.5f, 2f));
         }
     }

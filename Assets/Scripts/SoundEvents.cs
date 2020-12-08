@@ -51,16 +51,16 @@ public class SoundEvents : MonoBehaviour
 
         StartCoroutine(PlayBattleMusic());
 
-        StartCoroutine(SetBattleLoopVolume(1f));
+        StartCoroutine(SetBattleLoopVolume(.5f));
     }
 
     public IEnumerator SetBattleLoopVolume(float vol)
     {
         float startvol = battleloop.volume;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
         {
-            battleloop.volume += (vol - startvol) / 10;
-            yield return new WaitForSeconds(.2f);
+            battleloop.volume += (vol - startvol) / 20;
+            yield return new WaitForSeconds(.4f);
         }
     }
 
