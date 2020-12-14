@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.GetComponent<EnemyParams>();
-        if (enemy != null)
+        if (enemy != null && enemy.Health > 0)
         {
             enemy.TakeDamage(Damage);
             if (enemy.ImpactEffect != null) Instantiate(enemy.ImpactEffect, transform.position, transform.rotation);

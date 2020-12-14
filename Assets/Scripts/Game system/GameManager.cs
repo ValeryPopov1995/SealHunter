@@ -73,20 +73,23 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartWaveIEnumerator()
     {
-        NextWave.SetTrigger("play");
-        player.TellReplica(Waves[Wave].PlayerReplica);
-
-        yield return new WaitForSeconds(5f); // between waves
-        soundEvents.NextWave();
-        Debug.Log(Wave + " wave begun");
-
-        for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
+        if (!Defeat)
         {
-            for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
+            NextWave.SetTrigger("play");
+            player.TellReplica(Waves[Wave].PlayerReplica);
+
+            yield return new WaitForSeconds(5f); // between waves
+            soundEvents.NextWave();
+            Debug.Log(Wave + " wave begun");
+
+            for (int i = 0; i < Waves[Wave].Enemies.Length; i++)
             {
-                var pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)];
-                Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos.position, pos.rotation);
-                yield return new WaitForSeconds(UnityEngine.Random.Range(.3f, 1.5f)); // between spowning
+                for (int j = 0; j < Waves[Wave].Enemies[i].Count; j++)
+                {
+                    var pos = EnemySpowners[UnityEngine.Random.Range(0, EnemySpowners.Length)];
+                    Instantiate(Waves[Wave].Enemies[i].EnemyPrefab, pos.position, pos.rotation);
+                    yield return new WaitForSeconds(UnityEngine.Random.Range(.3f, 1.5f)); // between spowning
+                }
             }
         }
     }

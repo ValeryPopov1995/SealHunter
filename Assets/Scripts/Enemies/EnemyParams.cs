@@ -11,13 +11,11 @@ public class EnemyParams : MonoBehaviour
 
     bool dead = false;
     EnemyMovenment movenment;
-    Collider collider;
 
     private void Start()
     {
         GameManager.EnemiesLeft++;
         movenment = GetComponent<EnemyMovenment>();
-        collider = GetComponent<Collider>();
     }
 
     public void TakeDamage(float damage)
@@ -25,7 +23,7 @@ public class EnemyParams : MonoBehaviour
         Health -= damage;
         // if (ImpactEffect != null) Instantiate(ImpactEffect, transform.position, transform.rotation);
 
-        if (Health < 0 && !dead)
+        if (Health <= 0 && !dead)
         {
             dead = true;
 
@@ -38,7 +36,6 @@ public class EnemyParams : MonoBehaviour
 
             if (MeshAnimator != null) MeshAnimator.SetTrigger("destroy");
 
-            collider.enabled = false;
             Destroy(gameObject, 5f);
         }
     }

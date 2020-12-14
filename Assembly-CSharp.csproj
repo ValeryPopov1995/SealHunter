@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Game system\BuyButton.cs" />
     <Compile Include="Assets\Scripts\Game system\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game system\MainMenuCamera.cs" />
+    <Compile Include="Assets\Scripts\Game system\PauseButton.cs" />
     <Compile Include="Assets\Scripts\Game system\TriggerZone.cs" />
     <Compile Include="Assets\Scripts\Game system\WebLinkButton.cs" />
     <Compile Include="Assets\Scripts\PitchAudio.cs" />
