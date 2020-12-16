@@ -9080,8 +9080,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 60}
-  m_Center: {x: 0, y: 0, z: 30}
+  m_Size: {x: 9.350378, y: 10, z: 60}
+  m_Center: {x: 4.17519, y: 0, z: 30}
 --- !u!1 &1169863182
 GameObject:
   m_ObjectHideFlags: 0
@@ -9455,8 +9455,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 140}
-  m_Center: {x: 0, y: 0, z: 70}
+  m_Size: {x: 10.073841, y: 10, z: 140}
+  m_Center: {x: 4.5369205, y: 0, z: 70}
 --- !u!1 &1354759126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 108585762134273537, guid: 67496b31972689d48b3dc185135df8c1,
@@ -11438,8 +11438,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 140}
-  m_Center: {x: 0.000009066538, y: 0, z: 70}
+  m_Size: {x: 11.525686, y: 10, z: 140}
+  m_Center: {x: -5.2628336, y: 0, z: 70}
 --- !u!114 &1744093245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5174013309712517891, guid: b8954e0e8ac85e548850f0c1ad87a5b4,
@@ -12123,8 +12123,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 100}
-  m_Center: {x: 0, y: 0, z: 50}
+  m_Size: {x: 17.70058, y: 10, z: 100.00001}
+  m_Center: {x: -8.350292, y: 0, z: 50}
 --- !u!1 &1990636128
 GameObject:
   m_ObjectHideFlags: 0
@@ -13233,6 +13233,11 @@ PrefabInstance:
       propertyPath: FixedStick
       value: 
       objectReference: {fileID: 430121421}
+    - target: {fileID: 5174013309831711219, guid: b8954e0e8ac85e548850f0c1ad87a5b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8954e0e8ac85e548850f0c1ad87a5b4, type: 3}
 --- !u!114 &6249319208228686251

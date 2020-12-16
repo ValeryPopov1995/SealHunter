@@ -16,6 +16,7 @@ public class EnemyParams : MonoBehaviour
     {
         GameManager.EnemiesLeft++;
         movenment = GetComponent<EnemyMovenment>();
+        Destroy(gameObject, 60f);
     }
 
     public void TakeDamage(float damage)

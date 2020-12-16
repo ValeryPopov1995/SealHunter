@@ -32,6 +32,9 @@ public class BuyButton : MonoBehaviour
             player.Weapon1.gameObject.SetActive(false);
             player.Weapon2.gameObject.SetActive(true);
 
+            player.Weapon2.reloading = false;
+            player.Weapon2.BulletsCurrent = player.Weapon2.BulletsMax;
+
             player.AmmoText.text = player.Weapon2.AmmoString;
             // btn.interactable = false;
 

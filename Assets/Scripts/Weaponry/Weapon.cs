@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public int BulletsPerShoot = 1, BulletsMax = 10, BulletsCurrent = 10;
     public GameObject BulletPrefab, FireEffectPrefab;
 
-    bool readyToShoot = true, reloading = false;
+    public bool readyToShoot = true, reloading = false;
     [HideInInspector]
     public string AmmoString;
     Coroutine routine;
